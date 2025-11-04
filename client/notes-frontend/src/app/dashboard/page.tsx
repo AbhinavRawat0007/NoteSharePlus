@@ -47,7 +47,7 @@ export default function DashboardPage() {
         setUser(dataUser.data);
 
         // fetch notes
-        const resNotes = await fetch(${process.env.NEXT_PUBLIC_API_URL}/api/notes, {
+       const resNotes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notes`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const dataNotes = await resNotes.json();
