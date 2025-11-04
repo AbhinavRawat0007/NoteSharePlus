@@ -50,7 +50,7 @@ export default function AIToolsPage() {
 
     const fetchData = async () => {
       try {
-        const resUser = await fetch(${process.env.NEXT_PUBLIC_API_URL}/api/auth/me, {
+        const resUser = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const dataUser = await resUser.json();
@@ -62,7 +62,7 @@ export default function AIToolsPage() {
           return;
         }
 
-        const resNotes = await fetch(${process.env.NEXT_PUBLIC_API_URL}/api/notes, {
+        const resNotes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notes`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const dataNotes = await resNotes.json();
@@ -87,7 +87,6 @@ export default function AIToolsPage() {
     try {
       const token = localStorage.getItem("token");
       const note = notes.find((n) => n._id === selectedNote);
-
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/ai/${endpoint}`, {
         method: "POST",
         headers: {
