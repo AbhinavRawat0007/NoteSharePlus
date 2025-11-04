@@ -237,14 +237,15 @@ export default function MyNotesPage() {
 
                     {/* ✅ Fixed attachment link */}
                     {note.file && (
-                      <a
-                       href={${process.env.NEXT_PUBLIC_API_URL}${note.file}}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-400 text-sm mt-3 inline-block hover:underline"
-                      >
-                        📂 View Attachment
-                      </a>
+                     <a
+  href={`${process.env.NEXT_PUBLIC_API_URL}${note.file}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-blue-400 text-sm mt-3 inline-block hover:underline"
+>
+  📂 View Attachment
+</a>
+
                     )}
 
                     {note.isPublic ? (
