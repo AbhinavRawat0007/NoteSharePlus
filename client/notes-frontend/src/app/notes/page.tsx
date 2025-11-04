@@ -41,7 +41,7 @@ export default function MyNotesPage() {
     }
     try {
       // fetch user
-      const resUser = await fetch("http://localhost:5001/api/auth/me", {
+      const resUser = await fetch(${process.env.NEXT_PUBLIC_API_URL}/api/auth/me, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const dataUser = await resUser.json();
@@ -53,7 +53,7 @@ export default function MyNotesPage() {
       }
 
       // fetch notes
-      const res = await fetch("http://localhost:5001/api/notes", {
+      const res = await fetch(${process.env.NEXT_PUBLIC_API_URL}/api/notes, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -77,7 +77,7 @@ export default function MyNotesPage() {
 
     const token = localStorage.getItem("token");
     try {
-      const res = await fetch(`http://localhost:5001/api/notes/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notes/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -238,7 +238,7 @@ export default function MyNotesPage() {
                     {/* ✅ Fixed attachment link */}
                     {note.file && (
                       <a
-                        href={`http://localhost:5001${note.file}`}
+                       href={${process.env.NEXT_PUBLIC_API_URL}${note.file}}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-400 text-sm mt-3 inline-block hover:underline"
