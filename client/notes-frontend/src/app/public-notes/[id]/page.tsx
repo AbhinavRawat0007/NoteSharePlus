@@ -1,4 +1,4 @@
-// app/public-notes/[id]/page.js
+// app/public-notes/[id]/page.tsx
 
 "use client";
 
@@ -17,12 +17,10 @@ export default function PublicNoteDetailPage() {
 
     const fetchNoteAndIncrementView = async () => {
       try {
-        // This calls your existing backend route that increments
-        // the view count and returns the note data.
         const res = await fetch(
-          `http://localhost:5001/api/public-notes/${id}/view`,
+          `${process.env.NEXT_PUBLIC_API_URL}/api/public-notes/${id}/view`,
           {
-            method: "POST", // Use POST as defined in your publicNotesRoutes.js
+            method: "POST",
           }
         );
 
@@ -84,7 +82,7 @@ export default function PublicNoteDetailPage() {
         {/* Attachment Link */}
         {note.file && (
           <a
-            href={`http://localhost:5001${note.file}`}
+            href={`${process.env.NEXT_PUBLIC_API_URL}${note.file}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold"
@@ -95,7 +93,6 @@ export default function PublicNoteDetailPage() {
 
         {/* Note Content */}
         <div className="prose prose-invert prose-lg max-w-none bg-gray-900 border border-gray-800 p-6 rounded-lg">
-          {/* Use 'whitespace-pre-wrap' to respect newlines from the textarea */}
           <p style={{ whiteSpace: "pre-wrap" }}>{note.content}</p>
         </div>
       </main>
