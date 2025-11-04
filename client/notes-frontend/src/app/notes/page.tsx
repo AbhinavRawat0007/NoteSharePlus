@@ -41,7 +41,7 @@ export default function MyNotesPage() {
     }
     try {
       // fetch user
-      const resUser = await fetch(${process.env.NEXT_PUBLIC_API_URL}/api/auth/me, {
+      const resUser = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const dataUser = await resUser.json();
@@ -53,7 +53,7 @@ export default function MyNotesPage() {
       }
 
       // fetch notes
-      const res = await fetch(${process.env.NEXT_PUBLIC_API_URL}/api/notes, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notes`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
