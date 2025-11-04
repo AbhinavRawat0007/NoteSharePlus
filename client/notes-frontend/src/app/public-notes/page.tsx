@@ -15,9 +15,8 @@ export default function PublicNotesPage() {
 
   const fetchNotes = async () => {
     try {
-      const res = await fetch(
-        `http://localhost:5001/api/public-notes?q=${search}`
-      );
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/public-notes?q=${search}`);
+
       const data = await res.json();
       if (res.ok && data.success) {
         setNotes(data.data);
