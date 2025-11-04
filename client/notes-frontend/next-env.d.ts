@@ -13,6 +13,6 @@ GOOGLE_CLIENT_SECRET=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
 NEXTAUTH_SECRET=your_random_secret_key
 
 # ✅ App URL
-NEXTAUTH_URL=https://noteshareplus.onrender.com/
+NEXTAUTH_URL=https://noteshareplus.onrender.com
 
 NEXT_PUBLIC_API_URL=http:https://noteshareplus-backend.onrender.com
