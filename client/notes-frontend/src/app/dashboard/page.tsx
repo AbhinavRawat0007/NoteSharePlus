@@ -34,9 +34,10 @@ export default function DashboardPage() {
     const fetchData = async () => {
       try {
         // fetch user
-        const resUser = await fetch("http://localhost:5001/api/auth/me", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notes`, {
+         headers: { Authorization: `Bearer ${token}` },
+           });
+
         const dataUser = await resUser.json();
         if (!resUser.ok || !dataUser.success) {
           localStorage.removeItem("token");
