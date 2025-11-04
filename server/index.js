@@ -24,11 +24,14 @@ const PORT = process.env.PORT || 5001;
 // --- Middleware ---
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:3000",
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: [
+      "http://localhost:3000",
+      "https://noteshareplus.onrender.com"
+    ],
     credentials: true,
   })
 );
+
 app.use(express.json());
 
 // --- Routes ---
@@ -63,7 +66,7 @@ mongoose
   .then(async () => {
     console.log("✅ Connected to MongoDB Atlas");
     app.listen(PORT, () =>
-      console.log(`✅ Server running on http://localhost:${PORT}`)
+      console.log(`✅ Server running on port ${PORT}`)
     );
   })
   .catch((err) => console.error("❌ MongoDB connection error:", err));
