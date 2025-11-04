@@ -27,7 +27,7 @@ export default function EditNotePage() {
       }
 
       try {
-        const res = await fetch(`http://localhost:5001/api/notes/${id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notes/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -64,7 +64,7 @@ export default function EditNotePage() {
     // if (file) formData.append("file", file);
 
     try {
-      const res = await fetch(`http://localhost:5001/api/notes/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notes/${id}`, {
         method: "PUT",
         headers: {
           // ❌ DO NOT set 'Content-Type' when using FormData.
