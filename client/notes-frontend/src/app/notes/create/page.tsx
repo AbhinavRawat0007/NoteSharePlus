@@ -46,7 +46,7 @@ export default function CreateNotePage() {
       formData.append("tags", JSON.stringify(tags));
       if (file) formData.append("file", file);
 
-      const res = await fetch("http://localhost:5001/api/notes", {
+      const res = await fetch(${process.env.NEXT_PUBLIC_API_URL}/api/notes, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
