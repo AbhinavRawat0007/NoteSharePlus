@@ -34,7 +34,7 @@ export default function DashboardPage() {
     const fetchData = async () => {
       try {
         // fetch user
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notes`, {
+        const resUser = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notes`, {
          headers: { Authorization: `Bearer ${token}` },
            });
 
